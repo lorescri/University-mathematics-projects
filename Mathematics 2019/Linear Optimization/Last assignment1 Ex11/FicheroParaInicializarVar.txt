@@ -1,0 +1,7 @@
+ganancias: [120 120 120 120
+	    160 160 160 160
+	    200 200 200 200]
+capacProdMax: [500 850 750 1000]
+espacioOcupado: [10 15 20]
+capacAlmac:[10000 15000 9000 10000]
+demandaTOT:[900 700 450]
