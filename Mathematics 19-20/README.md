@@ -1,7 +1,7 @@
 # University Projects and Assignments (2019 / 2020)
 
 Welcome to this section of my GitHub repository, where you'll find a collection of projects and assignments that
-I did during my 2019 academic year. These tasks were completed as part of specific subjects that included practical 
+I did during my 19/20 academic year. These tasks were completed as part of specific subjects that included practical 
 components.
 
 ## About This Section
