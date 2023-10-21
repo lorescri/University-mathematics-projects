@@ -1,0 +1,69 @@
+// Resolver la ecuacion de ondas usando Euler Implícito para describir las vibraciones de la piel de un tambor en diferentes tiempos
+
+//En primer lugar definimos el dominio acotado Ω, que sera un disco de radio 1
+border c(t=0,2*pi){x=cos(t);y=sin(t);label=1;}
+
+//Fraccionamos el dominio por unidad de longitud
+int n=100; 
+
+//Triangulacion del dominio
+mesh th=buildmesh(c(n)); 
+plot(th,wait=1);
+
+//Consideramos funciones P1 a trozos y tal que sean 0 en la frontera del dominio para resolver la EDP 
+//La funcion fh representa la fuerza externa. 
+//Cuando fh=0, la ecuación de ondas representa la propagacion en tiempo de peque˜nas perturbaciones de velocidad
+fespace Vh(th,P1);
+Vh u,v,p,q,u0,v0,fh=0;
+
+//Posicion inicial de la onda
+u0=cos(y*x)*(1-(x^2+y^2))/(1+x^2+y^2);
+
+//Velocidad inicial de la onda
+v0=0;
+
+//Definimos las constantes
+real t=0,T=10;
+//Estudiamos la vibracion de la onda en tiempos diferentes; dividimos el intervalo de tiempo del experimento en N partes iguales
+int N=500; 
+real dt=T/N;
+real cc=3; //velocidad de difusion en el medio de la onda
+plot(u0,dim=3,fill=1,wait=1,value=1); //Dibujamos el punto de partida
+
+//La ecuacion de ondas es una ecuacion de segundo orden respecto al tiempo.
+//Por tanto para resolverla, la transformamos a una de primer orden en tiempo quedándonos así dos ecuaciones.
+//Usamos entonces Euler implıcito para el sistema vectorial de ecuaciones diferenciales de primer orden:
+//Planteamos la busqueda de dos incognitas u^{n+1} y v^{n+1} en  Vh 
+
+// El esquema es (1/Dt)(u^{n+1}-u^{n})=v^{n+1}
+//				 (1/Dt)(v^{n+1}-v^{n})=c^2*Grad(u^{n+1})+ f^{n+1}
+//
+// En formulacion variacional, usando funciones test p en Vh para la primera ecuacion y q en Vh para la
+// segunda, multiplicando e integrando por partes el operador gradiente
+//
+// integral( ((u^{n+1})*p)/(1/Dt)+ ((v^{n+1})*q)/(1/Dt) - (v^{n+1}*p) ) 
+//	+ c^2* integral(Grad(u^{n+1}),Grad(q))
+//  -(1/Dt)integral((u^{n})*p + (v^{n})*q)
+//	+ integral((f^{n+1})*q
+//  =0
+//
+//El código de la forma variacional del problema es el siguiente
+	
+problem onda(u,v,p,q)=
+	int2d(th)(u*p/dt+v*q/dt
+	-v*p
+	+cc*(dx(u)*dx(q)+dy(u)*dy(q))
+	)
+	-int2d(th)(u0*p/dt+v0*q/dt+fh*q
+	)
+	+on(1,u=0); // La condicion inicial u=0 sobre el contorno del dominio, traduce el hecho de que la piel está cosida al borde de Ω 
+
+//Damos la solucion de la EDP para cada tiempo diferente
+for(int i=1;i<N;i++)
+	{
+	onda; //Resolvemos la EDP
+	t=t+dt; //Incrementamos el tiempo
+	plot(u,dim=3,fill=1,wait=0,value=1,cmm="tiempo = "+t); //Dibujamos la solucion
+	u0=u; //Actualizamos
+	v0=v; //Actualizamos
+	}

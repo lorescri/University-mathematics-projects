@@ -1,0 +1,150 @@
+//Ecuciones de Rayleigh-Benard. Lorena Escribano Huesca
+
+// Definimos las constantes
+real Ra = 3600; 	// Número de Rayleigh
+real t = 0;			// Tiempo
+real dt = 0.01;		// Paso del tiempo
+int Nmax = 100;		// Numero máximo de iteraciones
+real epsln = 1e-10;	// Epsilon
+real T0 = 0.5; 		// Temperatura inicial
+
+
+
+// A continuacion definimos el dominio sobre el que vamos a trabajar
+// El siguiente comando genera una malla en el rectangulo [0,5] x [0,1]
+
+int n = 8;		// Puntos en los bordes cada unidad de longitud
+real bh = 5;	// Borde horizontal
+real bv = 1;	// Borde vertical
+border b1(t=0,bh){x=t; y=0;label=1;}	// Borde horizontal inferior
+border b2(t=0,bv){x=bh;y=t;label=2;}	// Borde vertical derecho
+border b3(t=bh,0){x=t; y=bv;label=3;}	// Borde horizontal superior
+border b4(t=bv,0){x=0;y=t;label=4;}		// Borde vertical izquierdo
+ 
+mesh Th = buildmesh(b1(bh*n)+b2(bv*n)+b3(bh*n)+b4(bv*n));
+
+
+
+//Construimos la misma triangulación para tener 2 graficas en la misma imagen
+mesh Th2 = movemesh(Th,[x,y+1.2]);
+mesh Th3 = movemesh(Th,[x,y+2.4]);
+
+
+ 
+// Definicion de los espacios a los que pertenecen las funciones con las que trabajamos
+// Fespace
+fespace Uh(Th, P2);  
+fespace Qh(Th, P1); 
+fespace Thcopia(Th2,P1);	
+fespace Uhcopy(Th3,P2);		
+
+// Defino las variables que voy a usar en cada espacio
+Uh u1, u2, v1, v2, uh1, uh2; 		// Incognita u, funcion test v, y las velocidades actualizadas
+Qh p, q, thp, thph, psi, ss, rr;	// Presion p, correccion q, temperatura y streamlines
+Thcopia T;							// Para dibujar la temperatura y la velocidad en graficas distintas
+Uhcopy u1copy, u2copy;
+
+
+
+// Fijamos init=0 para que la matriz se reconstruya cada vez que se llama al problema
+// De lo contrario se utiliza la matriz construida previamente.
+int i = 0;
+
+// Inicializacion de Stokes, para dar valores iniciales a las soluciones de la edp
+problem Stokes([u1, u2, p], [v1, v2, q], init=i) =
+        int2d(Th)(( dx(u1)*dx(v1)+dy(u1)*dy(v1)
+                  + dx(u2)*dx(v2)+dy(u2)*dy(v2)
+                  )
+                  -p*(dx(v1)+dy(v2))
+                  +q*(dx(u1)+ dy(u2))
+                  +epsln*p*q 
+        )
+        +int2d(Th)(-Ra*thp*v2
+		)
+        +on(1,2,4,3, u1=0,u2=0);
+
+Stokes;
+
+
+// Damos valores a los datos de partida
+uh1 = u1; 
+uh2 = u2;
+thph = T0;
+
+
+
+// Añadimos la ecuación del transporte para la temperatura en la habitación
+// Definimos el problema, Heat problem, de la siguiente manera:
+problem HeatProblem(thp, psi, solver = UMFPACK) =
+        int2d(Th)((thp*psi)/dt
+		)
+		+int2d(Th)((dx(thp)*dx(psi) + dy(thp)*dy(psi))
+		)
+		-int2d(Th)((1/dt)*convect([uh1,uh2], -dt, thph) * psi 
+		)
+		+on(1,thp=1)	// El fluido es calentado en el borde inferior a temperatura constante T=1
+        +on(3,thp=0);	// Mientras que en el borde superior se mantiene a una temperatura T=0
+
+
+// Problema Navier-Stokes 
+problem NavierStokes([u1, u2, p], [v1, v2, q], init=i) =
+        int2d(Th)((u1*v1+u2*v2)/dt
+				 )
+        +int2d(Th)((dx(u1)*dx(v1) + dy(u1)*dy(v1)+
+                    dx(u2)*dx(v2) + dy(u2)*dy(v2)
+					)
+					-p*(dx(v1)+dy(v2))
+					+q*(dx(u1)+ dy(u2))
+					+epsln*p*q
+					)
+        +int2d(Th)(-(1/dt)*convect([uh1,uh2],-dt,uh1)*v1
+				   -(1/dt)*convect([uh1,uh2],-dt,uh2)*v2
+                    )
+        +int2d(Th)(-Ra*thp*v2)
+		
+        +on(1,2,3,4,u1=0,u2=0); // La velocidad se mantiene constante en toda la frontera del rectángulo. 
+
+
+// Lineas de corriente, vienen dadas por la funcion ss tal que su rotacional coincide con u
+problem Streamlines(ss,rr)=
+		int2d(Th) (dx(ss)*dx(rr)+dy(ss)*dy(rr)
+		)
+		+int2d(Th) (-(rr*(dy(u1)-dx(u2)))
+		)
+		+on(1,2,3,4, ss=0);
+	  
+
+	  
+//Plot
+
+// Dominio sobre el que trabajamos y numero de vértices:
+plot(cmm="Dimension del espacio  Uh " + Uh.ndof, Th, wait=1);
+
+
+// Dibujamos la solucion en cada iteracion i
+for (i=0; i<=Nmax; i++){
+	
+	NavierStokes;	//Solucionamos la edp de Navier-Stokes
+	uh1 = u1; 		//Actualizamos valores de la velocidad
+	uh2 = u2;
+	
+	HeatProblem;	// Llamamos al problema HeatProblem
+	thph = thp;		// Para actualizar la temperatura del fluido
+	
+	//Obtenemos las lineas de corriente
+	Streamlines;
+	
+	//Pintamos los datos obtenidos en distintas graficas, una encima de otra
+	T = thp(x, y-1.2);		// Temperatura
+
+	u1copy = u1(x,y-2.4);	// Velocidad en la direccion x
+	u2copy = u2(x,y-2.4);	// Velocidad en la direccion y
+
+	//Pintamos el campo de velocidades en la 1ª grafica, la temperatura en la 2ª y finalmente el la funcion corriente (streamlines)
+	plot(cmm="Velocidad, temperatura y streamlines en tiempo:"+t, [u1copy,u2copy], T, ss, fill=1, coef=0.08);
+	// Poniendo fill=0 obtenemos la figura del enunciado de la practica
+	
+	t = t+dt;		// Por último aumentamos en tiempo, que va de 0 a 1 como se pide en el enunciado
+
+	}
+

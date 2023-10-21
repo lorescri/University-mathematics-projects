@@ -1,0 +1,59 @@
+//Ejercicio 40:
+//
+//Heat Transfer in a Fluid Flow
+//
+
+// Parameters
+int S = 1;// boundary of the square label
+int C = 2;// boundary of the cylinder label
+
+real epsilon=0.01; //solve the problem for different values of epsilon: 0.01, 0.1, 1
+
+real Uinf=1; //free stream velocity
+
+//Definion of the domain
+func cylinder = sqrt(1-(x)^2);
+
+border C01(t=0, 4){x=-2; y=-2+t; label=S;}
+border C02(t=0, 8){x=6-t; y=-2; label=S;}
+border C03(t=0, 4){x=6; y=2-t; label=S;}
+border C04(t=0, 8){x=-2+t; y=2; label=S;}
+
+border Cplus(t=-1, 1){x=t; y=cylinder; label=C;}
+border Cminus(t=1, -1){x=t; y=-cylinder; label=C;}
+
+// Mesh
+int n=20;
+mesh Th = buildmesh(C01(-n) + C02(-n) + C03(-n) + C04(-n) + Cplus(n) + Cminus(n));
+// Mesh drawing
+plot(cmm=" Mesh ", Th, wait=1);
+
+//Fespace
+fespace Uh(Th, P2);
+
+// Definition of the components of the field b
+Uh b1 = Uinf*(1-((x^2-y^2)/(x^2+y^2)^2));	//x component of b
+Uh b2 = -2*Uinf*(x*y/(x^2+y^2)^2); 			//y component of b
+
+// Visualization of the fluid velocity field b
+plot(cmm=" Fluid velocity field b ", [b1, b2], value=true, wait=true);
+
+macro b() [b1, b2]// definition of fluid velocity field b
+
+// Definition of the solution of the EDP and test functions
+Uh u, v;
+
+macro grad(u) [dx(u),dy(u)] // def of grad operator
+
+//Solve. 
+solve stokes(u, v)=
+	int2d(Th)(
+    epsilon*(grad(u)'*grad(v) //scalar product
+	)
+	- u*(b'*grad(v) //scalar product
+	))
+	+ on(S, u=0)+ on(C, u=1) //initial conditions
+	;
+
+//// Isocontours of the temperature u in the fluid
+plot(cmm=" Isocontours ", u, value=true, wait=1);

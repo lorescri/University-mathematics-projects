@@ -1,0 +1,65 @@
+// Ejercicio 44 Lorena Escribano Huesca
+// Ecuacion de conveccion-difusion
+
+// Definicion de las constantes
+real eps=0.001;	// Epsilon
+int Nmax=40;	// Numero maximo de iteraciones. Probar para Nmax=10
+real t=0;		// Tiempo inicial
+real dt=0.01;	// Paso del tiempo
+real T = 1;		// Tiempo del proceso, 1 seg
+
+
+// Definicion del dominio: un cuadrado de lado 1
+real lx = 1;
+real ly = 1;
+border bd1(t=0, lx){x=t; y=0; label=1;}
+border bd2(t=0, ly){x=lx; y=t; label=1;}
+border bd3(t=lx, 0){x=t; y=ly; label=1;}
+border bd4(t=ly, 0){x=0; y=t; label=1;}
+
+
+// Mesh
+int n=40;
+mesh Th = buildmesh(bd1(lx*n) + bd2(ly*n) + bd3(lx*n) + bd4(ly*n));
+
+// Mesh drawing
+plot(cmm=" Mesh ", Th, wait=1);
+
+
+// Definimos el espacio sobre el que vamos a trabajar
+fespace Uh(Th, P2);
+Uh u, v, uh, b1, b2;
+
+
+// Definicion de las componentes del campo beta, direccion de transporte
+b1 = 10 * pi * (-y + 0.5);	// Componente x de beta
+b2 = 10 * pi * (x - 0.5); 	// Componente y de beta
+
+
+// Resolvemos la ecuacion de conveccion-difusion usando Euler implícito:
+ problem cvcdiff(u,v)=
+         int2d(Th)(eps*(dx(u)*dx(v)+dy(u)*dy(v))	//epsilon*(Grad(u^{n+1}),Grad(v))
+					)
+        +int2d(Th)((b1*dx(u)+b2*dy(u))*v			// b*Grad(u^{n+1})*v
+					)
+        +int2d(Th)((u*v)/dt		//(1/Dt)(u^{n+1},v)
+					)
+		-int2d(Th)((uh*v)/dt	//(1/Dt)(u^{n},v)
+					)
+        +on(1, u=0);			// Condicion de contorno
+
+
+
+// Dato inicial
+uh = exp(-((x-2/3)^2+(y-1/2)^2)/(0.07)^2);
+plot(cmm="Valor inicial en tiempo:"+t, Th, uh, dim=2, fill=1, value=1, wait=0);
+
+
+// Hacemos 10 iteraciones del problema
+int i;
+for(i=0; i<=Nmax; i++){ 	//i=0,.. ,40
+	t = i*T/Nmax;			// Aumentamos el tiempo como se describe en el enunciado
+	cvcdiff;				// Resolvemos la ecuacion  de conveccion-difusion
+	uh = u;					// Actualizamos la solucion
+	plot(cmm="Solucion en tiempo:"+t, u, dim=2, fill=1, value=1, wait=0); // Dibujamos la solucion
+}
