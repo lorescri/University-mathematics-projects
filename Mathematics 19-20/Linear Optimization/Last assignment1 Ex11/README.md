@@ -14,7 +14,7 @@ The tools used to tackle this problem are **Xpress** and **Microsoft Excel**. Wi
 ## Attachments
 This section includes:
 
-1. **Data Input**: Our journey begins with data input in `Initialize_variables.txt`. In this file, the initial values are assigned to the variables.
+1. **Data Input**: Our journey begins with data input in `Initialise_variables.txt`. In this file, the initial values are assigned to the variables.
 
 2. **Model Development**: We turn to mathematical modeling, crafting a framework that accommodates constraints and objectives. This repository includes an `.mos` file for Xpress software called `Production_Xpress.mos`, which formulates and solves the exercise, considering all the given conditions.
 
