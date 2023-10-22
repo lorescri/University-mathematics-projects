@@ -1,4 +1,4 @@
-# Optimization projects
+## Optimization projects
 In this section, I dive into the world of optimizing linear functions with constraints, using essential methods to tackle real-world problems. Here you will discover two university projects in which I illustrate how linear optimisation provides effective and efficient solutions.
 
 ### Exercise 1: Maximizing Company Profits
