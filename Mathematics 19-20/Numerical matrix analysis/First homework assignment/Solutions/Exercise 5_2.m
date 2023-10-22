@@ -1,6 +1,6 @@
 clear all
 clc
-addpath('../Matrices')
+addpath('../Matrix')
 
 disp('Ejercicio 5.2')
 %Nos piden que comprobemos los metodos de la potencia y de la potencia inversa
@@ -33,7 +33,7 @@ prec=10^(-8);
 nmaxiteraciones=1000;
 
 % Metodo de la potencia 
-% Busca el valor propio de mayor tamaÒo
+% Busca el valor propio de mayor tama√±o
 display('METODO DE LA POTENCIA')
 
 [valorpropio_1,vectorpropio_1]=potencia(A,x0,nmaxiteraciones,prec)
@@ -44,7 +44,7 @@ display(' vectorpropio_1 == - V(:,1) ')
 
 
 % Metodo de la potencia inversa
-% Busca el valor propio de menor tamaÒo
+% Busca el valor propio de menor tama√±o
 display('METODO DE LA POTENCIA INVERSA')
 vaprox=0;
 [valorpropio_3,vectorpropio_3]=potenciaInvDesplazada(A,vaprox,x0,nmaxiteraciones,prec)
@@ -61,13 +61,13 @@ vaprox=-4
 [valorpropio_2,vectorpropio_2]=potenciaInvDesplazada(A,vaprox,x0,nmaxiteraciones,prec)
 
 display(' vectorpropio_2 == - V(:,2) ')
-%Obtenemos el valor de la matriz d (definida antes) m·s proximo al valor aproximado -4.
-%Este se corresponde al valor propio de A m·s proximo al valor aproximado -4.
+%Obtenemos el valor de la matriz d (definida antes) m√°s proximo al valor aproximado -4.
+%Este se corresponde al valor propio de A m√°s proximo al valor aproximado -4.
 
 
 
 disp('Apartado 1')
-%A continuacion construimos la matriz simetrica ìtestî A:
+%A continuacion construimos la matriz simetrica ‚Äútest‚Äù A:
 d=[2,3,1,5]; 
 D= diag(d);
 U=[ 1,-1, 0, 1; 
@@ -79,7 +79,7 @@ A= U'*D*U
 
 disp('Apartado 2')
 %Ahora comprobamos el funcionamiento de los metodos de la potencia y 
-%la potencia inversa para aproximar los valores propios de mayor y menor tamaÒo 
+%la potencia inversa para aproximar los valores propios de mayor y menor tama√±o 
 %de la matriz A 
 
 %Parametros para el metodo de la potencia
@@ -90,7 +90,7 @@ x0=ones(n,1);
 
 
 % Metodo de la potencia 
-% Busca el valor propio de mayor tamaÒo
+% Busca el valor propio de mayor tama√±o
 display('METODO DE LA POTENCIA aplicado a A')
 
 [valorpropio_1,vectorpropio_1]=potencia(A,x0,nmaxiteraciones,prec)
@@ -100,7 +100,7 @@ display(' vectorpropio_1 == - V(:,1) ')
 
 
 % Metodo de la potencia inversa
-% Busca el valor propio de menor tamaÒo
+% Busca el valor propio de menor tama√±o
 display('METODO DE LA POTENCIA INVERSA aplicado a A')
 vaprox=0;
 [valorpropio_3,vectorpropio_3]=potenciaInvDesplazada(A,vaprox,x0,nmaxiteraciones,prec)
@@ -120,7 +120,7 @@ A= U'*D*U
 
 %Dejamos los mismos parametros que en el apartado anterior
 % Metodo de la potencia 
-% Busca el valor propio de mayor tamaÒo
+% Busca el valor propio de mayor tama√±o
 display('METODO DE LA POTENCIA aplicado a A')
 
 [valorpropio_1,vectorpropio_1]=potencia(A,x0,nmaxiteraciones,prec)
@@ -129,7 +129,7 @@ display(' vectorpropio_1 == - V(:,1) ')
 
 
 % Metodo de la potencia inversa
-% Busca el valor propio de menor tamaÒo
+% Busca el valor propio de menor tama√±o
 display('METODO DE LA POTENCIA INVERSA aplicado a A')
 vaprox=0;
 [valorpropio_3,vectorpropio_3]=potenciaInvDesplazada(A,vaprox,x0,nmaxiteraciones,prec)
@@ -153,7 +153,7 @@ prec=10^(-8);
 nmaxiteraciones=1000;
 
 %Metodo de la potencia 
-% Busca el valor propio de mayor tamaÒo, es decir busca landa_1, y su vector asociado v_1
+% Busca el valor propio de mayor tama√±o, es decir busca landa_1, y su vector asociado v_1
 % para ello usamos:
 % Metodo de la potencia inversa con desplazamiento
 % busca el valor propio mas proximo a 1.7
@@ -164,7 +164,7 @@ vaprox=1.7
 [landa_1,v_1]=potenciaInvDesplazada(A,vaprox,x0,nmaxiteraciones,prec)
 
 
-%Buscamos ahora el valor propio de menor tamaÒo (que es landa_2) y su vector asociado v_2, 
+%Buscamos ahora el valor propio de menor tama√±o (que es landa_2) y su vector asociado v_2, 
 % para ello usamos:
 % Metodo de la potencia inversa con desplazamiento
 % busca el valor propio mas proximo a 1.4
