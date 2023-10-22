@@ -2,7 +2,7 @@
 clear all
 clc
 
-addpath('../Matrices')
+addpath('../Matrix')
 %Apartado 1
 %Al igual que en el ejercicio 3 de la entega anterior, vamos a comenzar  creando
 % una matriz tridiagonal simetrica:
