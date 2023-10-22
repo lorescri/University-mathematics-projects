@@ -9,9 +9,9 @@ plant, meeting demand requirements, and ensuring equitable distribution of the a
 
 ## The tools used
 
-Our resources include **Xpress** and **Microsoft Excel**. With these tools, we will transform data into actionable insights, creating mathematical models to guide decision-making.
+The tools used to tackle this problem are **Xpress** and **Microsoft Excel**. With these tools, we will transform data into actionable insights, creating mathematical models to guide decision-making.
 
-## The Quest: Mathematical Precision
+## Attachments 
 
 1. **Data Input**: Our journey begins with data input in `data.xlsx`. This serves as the foundation for our adventure.
 
