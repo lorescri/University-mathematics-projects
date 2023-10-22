@@ -12,5 +12,5 @@ reflecting the dedication and effort I put into their completion.
 
 
 ##
-Espero que encuentres este material interesante y útil. ¡Si tienes alguna pregunta o comentario, no dudes en contactarme!
+I hope you find this material interesting and useful - if you have any questions or comments, don't hesitate to contact me!
 
