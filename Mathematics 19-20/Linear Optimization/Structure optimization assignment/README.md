@@ -16,4 +16,4 @@ This section includes:
 1. **Optimization Explanation**: A PDF document called `Exercise_approach.pdf` that provides an approach to solving the exercise and enhances understanding.
 2. **Model Development**: We turn to mathematical modeling, crafting a framework that accommodates constraints and objectives. This repository includes a file for Xpress software called `Structure_Xpress.mos`, which formulates and solves the exercise, considering all the given conditions.
 3. **Excel Application**: In `Structure_Excel.xlsx`, the proposed exercise is presented and solved.
-4. **Results**: Using Excel Solver or Xpress, we meticulously refine our mathematical precision to address the load maximization challenge.
+4. **Results**: Using Excel or Xpress, we meticulously refine our mathematical precision to address the load maximization challenge.
