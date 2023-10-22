@@ -1,13 +1,13 @@
 clear all
 clc
 clf
-addpath('../Matrices')
+addpath('../Matrix')
 
 disp('Ejercicio 3')
 
 disp('Apartado a')
 %En primer lugar utilizamos la funcion meshgrid que sirve para dibujar una funcion 3D.
-%Creo coordenadas de cuadrÌcula 3-D de x, y, z coordenadas definidas en el intervalo [-2,2] 
+%Creo coordenadas de cuadr√≠cula 3-D de x, y, z coordenadas definidas en el intervalo [-2,2] 
 %cada coordenada esta a una distancia de 0.2 de la siguiente
 [x,y,z]=meshgrid(-2:0.2:2,-2:0.2:2,-2:0.2:2);
 
@@ -16,7 +16,7 @@ eq1=15*x + y.^2 - 4*z - 13;
 eq2=x.^2 + 10*y - z - 11;
 eq3=y - 25*z + 22;
 
-%Dibujamos las isosuperficies, que aparecer·n en la ventana grafica
+%Dibujamos las isosuperficies, que aparecer√°n en la ventana grafica
 isosurface(x,y,z,eq1,0);
 isosurface(x,y,z,eq2,0);
 isosurface(x,y,z,eq3,0);
@@ -84,9 +84,9 @@ disp('Apartado c')
 %Ahora vamos a usar el metodo del descenso rapido para tener aproximaciones de la solucion buscada. 
 
 %Retomamos la funcion F definida en el primer apartado de este ejercicio y
-%definimos la "funciÛn objetivo del sistema", Fobj, usando la funcion objetivo.m 
+%definimos la "funci√≥n objetivo del sistema", Fobj, usando la funcion objetivo.m 
 %Recordamos que las soluciones del sistema del enunciado son los vectores 
-%donde se alcanzan los mÌnimos absolutos de esta funcion objetivo:
+%donde se alcanzan los m√≠nimos absolutos de esta funcion objetivo:
 
 Fobj=@(X) objetivo(F,X);
 
@@ -95,7 +95,7 @@ paso=0.001;
 %Usamos la precision gruesa que pide el enunciado
 precision=0.5e-3;
 nmaxiter=100;
-%Partimos de una aproximaciÛn inicial 
+%Partimos de una aproximaci√≥n inicial 
 X0=[1,1,1];
 
 %Finalmente aplicamos el metodo del descenso rapido a la funcion
@@ -114,7 +114,7 @@ precision=0.5e-10;
 nmaxiteraciones=100;
 
 %Sabemos por teoria que los metodos de Newton o de Boyren para resolver sistemas
-%son eficientes si partimos de una aproximaciÛn a la soluciÛn adecuada. 
+%son eficientes si partimos de una aproximaci√≥n a la soluci√≥n adecuada. 
 X1=[-0.5;-1.3;0];
 
 
@@ -139,14 +139,14 @@ printf("\n")
 printf("\n")
 disp('Apartado e')
 %Sabemos si utilizamos el metodo de Newton, resolver un sistema lineal de 
-%m ecuaciones con m incognitas, tendr· un coste del orden de m3 operaciones en cada etapa,
+%m ecuaciones con m incognitas, tendr√° un coste del orden de m3 operaciones en cada etapa,
 %Teniendo en cuenta que nuestro sistema tiene 3 incognitas y 3 ecuaciones
 %el numero de operaciones en total, es decir en todas las etapas, usando el metodo de Newton es:
 disp('Numero de operaciones realizadas en total con el metodo de Newton:')
 numOperacionesNewton=npasosN*3^3
 
 %Mientras que el si usamos el metodo de Boyren, resolver un sistema lineal de 
-%m ecuaciones con m incognitas, tendr· un coste del orden de m2 operaciones en cada etapa,
+%m ecuaciones con m incognitas, tendr√° un coste del orden de m2 operaciones en cada etapa,
 %Por tanto el numero de operaciones en  total usando el metodo de Boyren es:
 disp('Numero de operaciones realizadas en total con el metodo de Boyren:')
 numOperacionesNewton=npasosB*3^2
