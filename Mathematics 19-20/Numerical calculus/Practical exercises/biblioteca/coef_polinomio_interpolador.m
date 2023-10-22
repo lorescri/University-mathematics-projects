@@ -10,4 +10,4 @@ pol=difdiv(k,k)*poly(x(k-1));
 for i=k-1:-1:2
     pol=conv((pol+[zeros(1,k-i) difdiv(i,i)]),poly(x(i-1)));
 end
-pol=pol+[zeros(1,k-1) difdiv(1,1)]
+pol=pol+[zeros(1,k-1) difdiv(1,1)];

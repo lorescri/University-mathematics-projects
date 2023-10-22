@@ -24,5 +24,5 @@ for i=1:n-2
     cierraparen=[cierraparen ')'];
 end
     
-pol=[pol mat2str(difdiv(n,n)) cierraparen]
+pol=[pol mat2str(difdiv(n,n)) cierraparen];
 

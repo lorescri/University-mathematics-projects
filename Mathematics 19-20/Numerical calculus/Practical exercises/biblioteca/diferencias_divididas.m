@@ -26,16 +26,12 @@ for i=1:n+1
     end
 end
 
-disp(['Numero de nodos de interpolacion= ' mat2str(n+1)]);
-fprintf('\n')
-disp('Nodos de interpolacion: ');
-disp(x);
-fprintf('\n')
-disp('Valores de la funcion en los nodos de interpolacion:');
-disp(y);
-fprintf('\n')
-disp('La tabla de diferencias divididas asociadas a estos nodos de interpolacion es:');
-%fprintf('  f[.] \t f[..] \t f[...] \t f[....]\n');
-fprintf('\n')
-disp(difdiv)
+%%disp(['Numero de nodos de interpolacion= ' mat2str(n+1)]);
+%%disp('Nodos de interpolacion: ');
+%%disp(x);
+%%disp('Valores de la funcion en los nodos de interpolacion:');
+%%disp(y);
+%%disp('La tabla de diferencias divididas es:');
+%%fprintf('\t  f[.] \t \t  f[..] \t \t f[...]\n');
+%%disp(difdiv)
 

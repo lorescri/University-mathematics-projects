@@ -17,7 +17,7 @@ disp('Valores de la funcion en los nodos de interpolacion:');
 disp(ff);
 disp('Valores de las diferencias divididas de orden 2:');
 disp(difdiv_2);
-%xx=zeros(1,2*n)
+
 
 for i=1:n+1
     difdiv(i,1)=ff(i);
