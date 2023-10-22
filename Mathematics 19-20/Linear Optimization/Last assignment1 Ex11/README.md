@@ -20,6 +20,6 @@ This section includes:
 
 3. **Excel Application**: In `optimization_model.xlsx`, the proposed exercise is presented and solved.
 
-4. **Optimization Explanation**: A PDF document that provides an approach to solving the exercise and enhances understanding.
+4. **Optimization Explanation**: A PDF document called `Exercise_approach.pdf`that provides an approach to solving the exercise and enhances understanding.
 
 5. **Results**: Using Excel Solver or Xpress, we finely tune our mathematical precision to maximize profit.
