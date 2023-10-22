@@ -1,6 +1,6 @@
-## Numerical Methods for ODEs
+## Numerical Methods of ODEs
 
-Welcome to the "Numerical Methods for Ordinary Differential Equations (ODEs)" repository!
+Welcome to the "Numerical Methods of Ordinary Differential Equations (ODEs)" repository!
 
 In this repository, you will find a collection of assigments made by my colleague Nicole and me, related to the course. The primary focus of the course
 is on using the mathematical software "Wolfram Mathematica", as both a Computer Algebra System (CAS) and a programming language, with a strong emphasis on functional programming techniques.
