@@ -18,7 +18,7 @@ This section includes:
 
 2. **Model Development**: We turn to mathematical modeling, crafting a framework that accommodates constraints and objectives. This repository includes an `.mos` file for Xpress software called `Production_Xpress.mos`, which formulates and solves the exercise, considering all the given conditions.
 
-3. **Excel Application**: In `optimization_model.xlsx`, the proposed exercise is presented and solved.
+3. **Excel Application**: In `Production_Excel.xlsx`, the proposed exercise is presented and solved.
 
 4. **Optimization Explanation**: A PDF document called `Exercise_approach.pdf`that provides an approach to solving the exercise and enhances understanding.
 
