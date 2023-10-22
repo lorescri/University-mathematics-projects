@@ -7,5 +7,7 @@ The first challenge revolves around the optimization of a company's profits. I w
 
 ### Exercise 2: Maximizing Load Capacity
 
-In our second exercise, we delve into a structural engineering problem. The objective is to maximize the load capacity of a system composed of beams and cables. By optimizing the arrangement of cables and loads, we showcase the remarkable potential of linear optimization in crafting resilient and efficient structural solutions. Welcome to this journey of optimization within my GitHub space!
+In the second exercise, we delve into a structural engineering problem. The objective is to maximize the load capacity of a system composed of beams and cables. By optimizing the arrangement of cables and loads, we showcase the remarkable potential of linear optimization in crafting resilient and efficient structural solutions.
+
+Welcome to this journey of optimization within my GitHub space!
 
