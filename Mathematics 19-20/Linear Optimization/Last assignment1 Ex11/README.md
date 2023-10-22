@@ -14,12 +14,8 @@ The tools used to tackle this problem are **Xpress** and **Microsoft Excel**. Wi
 ## Attachments
 This section includes:
 
-1. **Data Input**: Our journey begins with data input in `Initialise_variables.txt`. In this file, the initial values are assigned to the variables.
-
-2. **Model Development**: We turn to mathematical modeling, crafting a framework that accommodates constraints and objectives. This repository includes an `.mos` file for Xpress software called `Production_Xpress.mos`, which formulates and solves the exercise, considering all the given conditions.
-
-3. **Excel Application**: In `Production_Excel.xlsx`, the proposed exercise is presented and solved.
-
-4. **Optimization Explanation**: A PDF document called `Exercise_approach.pdf`that provides an approach to solving the exercise and enhances understanding.
-
+1. **Optimization Explanation**: A PDF document called `Exercise_approach.pdf` that provides an approach to solving the exercise and enhances understanding.
+2. **Data Input**: Our journey begins with data input in `Initialise_variables.txt`. In this file, the initial values are assigned to the variables.
+3. **Model Development**: We turn to mathematical modeling, crafting a framework that accommodates constraints and objectives. This repository includes a file for Xpress software called `Production_Xpress.mos`, which formulates and solves the exercise, considering all the given conditions.
+4. **Excel Application**: In `Production_Excel.xlsx`, the proposed exercise is presented and solved.
 5. **Results**: Using Excel Solver or Xpress, we finely tune our mathematical precision to maximize profit.
