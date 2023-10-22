@@ -2,7 +2,7 @@
 
 Welcome to the world of optimization, where data and mathematics come together to enhance business success. In this exercise, we will maximise a company's profit taking into account plant-specific constraints.
 
-## The Challenge: Striking a Balance
+## The Challenge: Maximising profits
 
 Picture this scenario: A multi-plant enterprise aims to achieve peak profitability while working within strict constraints. These constraints include adhering to the maximum production capacity for each plant, the storage capacity of each 
 plant, meeting demand requirements, and ensuring equitable distribution of the additional production capacity among all plants.
