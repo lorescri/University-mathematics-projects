@@ -1,7 +1,7 @@
 clear all
 clc
 clf
-addpath('../Matrices')
+addpath('../Matrix')
 
 disp('Ejercicio 2')
 
