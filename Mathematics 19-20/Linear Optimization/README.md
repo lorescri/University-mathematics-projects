@@ -1,20 +1,11 @@
-# Linear Optimization Showcase
-In this section, I address the optimization of linear functions with constraints, 
-applying essential methods to solve real-world problems. Here, you'll find two projects that 
-demonstrate how linear optimization translates into effective and efficient solutions.
-Welcome to this optimization journey in my GitHub space!
-
+# Optimisation projects
+In this section, I dive into the world of optimizing linear functions with constraints, using essential methods to tackle real-world problems. Here, you'll discover two projects that vividly illustrate how linear optimization yields effective and efficient solutions.
 
 ### Exercise 1: Maximizing Company Profits
 
-The first challenge involves maximizing the profits of a company. I'll show how linear optimization 
-techniques can help a business make strategic decisions to achieve peak profitability while considering various 
-constraints and objectives.
+The first challenge revolves around the optimization of a company's profits. I will demonstrate how linear optimization techniques empower businesses to make strategic decisions, maximizing profitability while considering a range of constraints and objectives.
 
 ### Exercise 2: Maximizing Load Capacity
 
-In the second exercise, I address a structural engineering problem.
-The aim is to maximize the load capacity of a system of beams and cables. 
-By optimising the arrangement of cables and loads, the power of linear optimisation in the design of 
-robust and efficient structural solutions is demonstrated.
+In our second exercise, we delve into a structural engineering problem. The objective is to maximize the load capacity of a system composed of beams and cables. By optimizing the arrangement of cables and loads, we showcase the remarkable potential of linear optimization in crafting resilient and efficient structural solutions. Welcome to this journey of optimization within my GitHub space!
 
