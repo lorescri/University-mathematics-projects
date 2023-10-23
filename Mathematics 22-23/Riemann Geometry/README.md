@@ -26,5 +26,5 @@ The concept of  the second fundamental form,
 the Gauss equation and  minimal hypersurface is explored.
 
 
-###
+##
 Feel free to explore each task folder for a more in-depth understanding of the specific concepts, equations, and exercises I encountered during my study of Riemannian Geometry. 
