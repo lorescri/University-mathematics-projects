@@ -6,11 +6,11 @@ and the resolution of systems of non-linear equations.
 
 ### Repository content
 
-In this GitHub repository, you will discover the assignments completed for this course,
+In this GitHub folder, you will discover the assignments completed for this course,
 all meticulously crafted using MATLAB. Each folder contains both the exercise statements and their corresponding solutions,
 reflecting the dedication and effort I put into their completion.
 
 
 ##
-I hope you find this material interesting and useful - if you have any questions or comments, don't hesitate to contact me!
+I hope you find this material interesting and useful. If you have any questions or comments, don't hesitate to contact me!
 
