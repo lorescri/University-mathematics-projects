@@ -10,4 +10,5 @@ This repository serves as a showcase of my academic work during that year, highl
 abilities developed through various course assignments.
 Feel free to explore the projects and gain insights into the practical aspects of my university education.
 
+##
 Thank you for visiting, and I hope you find these projects informative and illustrative of my academic journey.
