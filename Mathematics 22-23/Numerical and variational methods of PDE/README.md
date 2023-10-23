@@ -1,6 +1,8 @@
 ## Numerical and Variational Methods for PDEs
 
 Here, you'll find a collection of assignments, each exploring different aspects of solving PDEs using the Finite Element Method with FreeFEM.
+Each of the tasks is implemented in Notepad++ and executed using FreeFEM, providing graphical representations of the programmed solutions. In addition, I have included the exercise statements for each task.
+
 Let's take a glimpse at each of the tasks:
 
 ### Task 1: Implicit Euler Method
@@ -26,5 +28,5 @@ which appears in numerous areas of science and engineering, to understand how it
 In the final task, I dive into the fascinating phenomenon of Rayleigh-Bénard convection. By employing the Finite Element Method,
 I simulate the convective heat transfer in a fluid layer, understanding its patterns and transitions. This task is particularly relevant to fluid dynamics and geophysics.
 
-###
+##
 Feel free to explore each of the tasks to gain insights into how numerical and variational methods are applied to real-world problems. If you have any questions or would like to discuss my work, please don't hesitate to reach out. Enjoy your exploration!
