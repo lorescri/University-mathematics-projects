@@ -2,10 +2,10 @@
 
 ## Numerical Methods of ODEs
 
-Welcome to the "Numerical Methods of Ordinary Differential Equations (ODEs)" repository!
+Welcome to the "Numerical Methods of Ordinary Differential Equations (ODEs)" folder!
 
-In this repository, you will find a collection of assigments made by my colleague **Nicole** and me, related to the course. The primary focus of the course
-is on using the mathematical software "Wolfram Mathematica", as both a Computer Algebra System (CAS) and a programming language, with a strong emphasis on functional programming techniques.
+In this repository, you will find a collection of assigments made by my colleague **Nicole** and me, related to the course of _Laboratorio Computazionale_ taught at the University of Padova :it:.
+The primary focus of the course is on using the mathematical software "Wolfram Mathematica", as both a Computer Algebra System (CAS) and a programming language, with a strong emphasis on functional programming techniques.
 
 ### Topics Covered
 
@@ -22,7 +22,7 @@ I explore a wide range of mathematical topics through the development and applic
 - 3D graphics: anaglyphs
 - The Sierpiński triangle and carpet
 
-
+##
 Please feel free to explore the content of this repository, where you'll find code and exercises related to the course. We hope you find these materials helpful in your study of numerical methods for ODEs. If you have any questions or suggestions, don't hesitate to reach out.
 
 
