@@ -1,6 +1,6 @@
 ## Bachelor's Thesis: Borwein Integrals
 
-Welcome to my GitHub folder dedicated to my Bachelor's Thesis and associated resources. Within this repository,
+Welcome to my GitHub folder dedicated to my Bachelor's Thesis and associated resources. Within this section,
 you'll discover a diverse array of materials that played a pivotal role in the development of my Bachelor's Thesis.
 
 ### Repository Contents
