@@ -1,7 +1,7 @@
 ## Numerical and Variational Methods for PDEs
 
 Here, you'll find a collection of assignments, each exploring different aspects of solving PDEs using the Finite Element Method with FreeFEM.
-Each of the tasks is implemented in Notepad++ and executed using FreeFEM, providing graphical representations of the programmed solutions. In addition, I have included the exercise statements for each task.
+Each of the tasks is implemented in Notepad++ and executed using FreeFEM, providing graphical representations of the programmed solutions. I have also included the exercise statements for each task.
 
 Let's take a glimpse at each of the tasks:
 
