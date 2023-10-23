@@ -1,4 +1,4 @@
-# University mathematics projects (2022 - 2023)
+# University Projects and Assignments (2022 - 2023)
 
 Welcome to this section of my GitHub repository, representing the culmination of my final year in the field of Mathematics!
 
